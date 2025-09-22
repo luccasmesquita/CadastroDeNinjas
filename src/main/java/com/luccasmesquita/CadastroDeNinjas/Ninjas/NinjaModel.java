@@ -1,5 +1,6 @@
-package com.luccasmesquita.CadastroDeNinjas;
+package com.luccasmesquita.CadastroDeNinjas.Ninjas;
 
+import com.luccasmesquita.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
 //Entity - transforma uma classe em um entidade do banco de dados
@@ -14,6 +15,11 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    //@ManyToOne - um ninja tem uma unica missão
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Foreing key ou chave estrangeira
+    private MissoesModel missoes;
 
     //criando construtores - no args / all args
     public NinjaModel() {
