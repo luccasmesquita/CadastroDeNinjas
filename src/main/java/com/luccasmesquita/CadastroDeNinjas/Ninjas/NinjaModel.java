@@ -1,5 +1,6 @@
-package com.luccasmesquita.CadastroDeNinjas;
+package com.luccasmesquita.CadastroDeNinjas.Ninjas;
 
+import com.luccasmesquita.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
 //JPA(dependencia) = Java Persistence API
@@ -13,6 +14,11 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    //@ManyToOne - um ninja tem uma unica missao
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // foreing key - chave estrangeira
+    private MissoesModel missoes;
 
     //construtores
     public NinjaModel() {
